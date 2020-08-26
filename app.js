@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const { middleWare } = require('./middleware');
 const notesRouter = require('./routes/notes');
-const eventAddRouter = require('./routes/eventAddRouter');
+const eventAddRouter = require('./routes/eventAdd');
 const mainRouter = require('./routes/main');
 
 middleWare(app);
