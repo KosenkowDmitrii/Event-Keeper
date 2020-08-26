@@ -1,0 +1,28 @@
+{
+  "name": "Event-Keeper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KosenkowDmitrii/Event-Keeper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KosenkowDmitrii/Event-Keeper/issues"
+  },
+  "homepage": "https://github.com/KosenkowDmitrii/Event-Keeper#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "hbs": "^4.1.1",
+    "mongoose": "^5.10.0",
+    "morgan": "^1.10.0",
+    "session-file-store": "^1.4.0"
+  }
+}
