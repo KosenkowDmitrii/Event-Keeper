@@ -3,7 +3,7 @@ const router = express.Router();
 
 router.route('/')
 .get((req, res) => {
-  res.render('main');
+  res.render('eventAdd');
 });
 
 module.exports = router;
