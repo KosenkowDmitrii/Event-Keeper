@@ -5,6 +5,9 @@ module.exports = mongoose.model('day', {
     type: Array,
     required: true
   },
-  events: Array,
+  events: {
+    type: Array,
+    required: true
+  },
   notes: Array
 })
