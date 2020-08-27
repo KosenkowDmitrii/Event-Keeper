@@ -15,8 +15,7 @@ form.addEventListener('submit', async (e) => {
     })
   })
   const res = await response.json();
-  console.log(res);
   if(response.status === 200) {
-    window.location = '/main'
+    window.location = '/main';
   }
 })
