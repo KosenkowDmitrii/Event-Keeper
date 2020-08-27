@@ -1,4 +1,6 @@
 const form = document.querySelector('#createEventForm');
+
+
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const { date, events, notes, action, method } = e.target;
@@ -19,3 +21,6 @@ form.addEventListener('submit', async (e) => {
     window.location = '/main';
   }
 })
+
+
+
