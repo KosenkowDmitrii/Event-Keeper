@@ -8,6 +8,7 @@ router.route('/')
 })
 .post( async (req, res) => {
   const { date, events, notes } = req.body;
+  
   const day = new Day({
     date,
     events,
