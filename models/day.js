@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 module.exports = mongoose.model('day', {
   date: {
-    type: Date,
+    type: Array,
     required: true
   },
   events: Array,
