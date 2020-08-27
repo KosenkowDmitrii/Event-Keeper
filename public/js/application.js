@@ -1,4 +1,6 @@
 const form = document.querySelector('#createEventForm');
+
+
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const { date, events, notes, action, method } = e.target;
@@ -21,3 +23,4 @@ const backBtn = document.getElementById('backBtn');
 backBtn.addEventListener('click', function () {
   window.location = '/main';
 });
+
