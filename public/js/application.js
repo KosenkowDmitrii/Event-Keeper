@@ -4,7 +4,7 @@ const form = document.querySelector('#createEventForm');
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const { date, events, notes, action, method } = e.target;
-
+    console.log(e.target);
   const response = await fetch(action, {
     method,
     headers: {
@@ -16,11 +16,11 @@ form.addEventListener('submit', async (e) => {
       notes: notes.value,
     })
   })
-  const res = await response.json();
-  if(response.status === 200) {
-    window.location = '/main';
-  }
+  const result = await response.json();
 })
 
-
+const backBtn = document.getElementById('backBtn');
+backBtn.addEventListener('click', function () {
+  window.location = '/main';
+});
 
