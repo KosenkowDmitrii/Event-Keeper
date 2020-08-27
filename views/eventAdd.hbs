@@ -1,19 +1,19 @@
 
-<h2 style="margin: 20px">Добавить новое событие:</h2>
+<h2 class="m-5"><span class="m-50">Добавить новое событие:</span></h2>
 
-<form class="m-5" id="createEventForm" form action="/eventAdd" method="POST" style="margin: 20px">
+<form class="w-50" id="createEventForm" form action="/eventAdd" method="POST">
   <div class="form-group mx-5">
-    <label class="col-sm-2 control-label" for="exampleInputDate">Выберите дату</label>
+    <label for="exampleInputDate">Выберите дату</label>
     <input name="date" type="date" class="form-control " id="exampleInputDate" aria-describedby="dateHelp">
   </div>
   <div class="form-group mx-5">
-    <label class="col-sm-2 control-label" for="exampleInputText">Опишите событие</label>
+    <label for="exampleInputText">Опишите событие</label>
     <input name="events" type="text" class="form-control" id="exampleInputText" aria-describedby="dateHelp">
     </div>
   <div class="form-group mx-5">
-    <label class="col-sm-2 control-label"for="exampleInputText">Оставьте заметку</label>
+    <label for="exampleInputText">Оставьте заметку</label>
     <textarea name="notes" type="text" class="form-control" id="exampleInputText" aria-describedby="dateHelp"></textarea>
     </div>
-    <button type="submit" class="btn btn-dark ml-5">Сохранить</button>
-  <button type="s n" class="btn btn-outline-dark">Назад</button>
+    <button type="submit" class="btn btn-dark ml-5 form-group">Сохранить</button>
+  <button type="s n" class="btn btn-outline-dark form-group">Назад</button>
 </form>
