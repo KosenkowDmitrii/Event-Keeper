@@ -7,10 +7,9 @@ function deleter(butt,divc){
     divc.remove();})
 }
 
-
 if(form){
 
-  form.addEventListener('submit', async (e) => {
+  form.addEventListener('submit', async (e) => {//Логика eventAdd Добавить новое событие
     e.preventDefault();
     const { date, events, notes, action, method } = e.target;
     
@@ -25,13 +24,10 @@ if(form){
       notes: notes.value,
     })
   })
-  const res = await response.json();
-  if(response.status === 200) {
-    window.location = '/main';
-  }
+  window.location.reload();
+  const result = await response.json();
 })
 
-}
 
 if(frm){
 frm.addEventListener('submit', async (e) => {
@@ -59,12 +55,24 @@ frm.addEventListener('submit', async (e) => {
   </div>
   <button id="deletebtn" type="button" action="click" class="btn btn-dark ml-5 form-group">Удалить событие</button>
   </div>`
+
   container.appendChild(div);
   let b = document.getElementById('deletebtn');
   let div2 = document.getElementById('div');
- deleter(b,div2);
+  deleter(b,div2);
 })
 }
-{/* <button type="button" action="click" class="btn btn-outline-dark form-group">Добавить заметку</button> */}
 
 
+
+
+
+const backBtn = document.getElementById('backBtn'); //кнопка назад на главную;
+backBtn.addEventListener('click', function () {
+  window.location = '/main';
+});
+
+const saveBtn = document.getElementById('saveBtn'); //кнопка релоада страницы при сохранении нового события
+saveBtn.addEventListener('click', function () {
+  window.location.reload();
+});
