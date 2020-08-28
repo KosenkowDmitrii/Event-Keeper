@@ -26,7 +26,9 @@ if(form){
   })
   window.location.reload();
   const result = await response.json();
+
 });
+}
 
 if(frm){
 frm.addEventListener('submit', async (e) => {
@@ -54,14 +56,19 @@ frm.addEventListener('submit', async (e) => {
   </div>
   <button id="deletebtn" type="button" action="click" class="btn btn-dark ml-5 form-group">Удалить событие</button>
   </div>`
+
   container.appendChild(div);
   let b = document.getElementById('deletebtn');
   let div2 = document.getElementById('div');
-deleter(b,div2);
-});
-}};
 
-// {<button type="button" action="click" class="btn btn-outline-dark form-group">Добавить заметку</button>}
+  deleter(b,div2);
+})
+}
+
+
+
+
+
 
 const backBtn = document.getElementById('backBtn'); //кнопка назад на главную;
 backBtn.addEventListener('click', function () {
@@ -72,3 +79,6 @@ const saveBtn = document.getElementById('saveBtn'); //кнопка релоад�
 saveBtn.addEventListener('click', function () {
   window.location.reload();
 });
+
+
+
