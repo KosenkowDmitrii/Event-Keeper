@@ -9,7 +9,7 @@ function deleter(butt,divc){
 
 if(form){
 
-  form.addEventListener('submit', async (e) => {
+  form.addEventListener('submit', async (e) => {//Логика eventAdd Добавить новое событие
     e.preventDefault();
     const { date, events, notes, action, method } = e.target;
     
@@ -24,8 +24,10 @@ if(form){
       notes: notes.value,
     })
   })
+  window.location.reload();
   const result = await response.json();
 })
+
 
 if(frm){
 frm.addEventListener('submit', async (e) => {
@@ -61,9 +63,14 @@ frm.addEventListener('submit', async (e) => {
 }
 // {<button type="button" action="click" class="btn btn-outline-dark form-group">Добавить заметку</button>}
 
-const backBtn = document.getElementById('backBtn');
+const backBtn = document.getElementById('backBtn'); //кнопка назад на главную;
 backBtn.addEventListener('click', function () {
   window.location = '/main';
+});
+
+const saveBtn = document.getElementById('saveBtn'); //кнопка релоада страницы при сохранении нового события
+saveBtn.addEventListener('click', function () {
+  window.location.reload();
 });
 
 
