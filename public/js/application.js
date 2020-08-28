@@ -26,8 +26,10 @@ if(form){
   })
   window.location.reload();
   const result = await response.json();
+
 });
 }
+
 if(frm){
 frm.addEventListener('submit', async (e) => {
   e.preventDefault(); // prevent default action of form
@@ -58,9 +60,11 @@ frm.addEventListener('submit', async (e) => {
   container.appendChild(div);
   let b = document.getElementById('deletebtn');
   let div2 = document.getElementById('div');
+
   deleter(b,div2);
 })
 }
+
 
 
 
