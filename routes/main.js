@@ -5,7 +5,6 @@ const Day = require('../models/day');
 
 function days(current) { //Вытягиваем динамические даты для main на 14 дней
   let week = new Array();
-
   let first = current.getDate();
   for (let i = 0; i < 14; i++) {
 
@@ -62,6 +61,18 @@ router.route('/') //Добавляем даты к каждому дню на ma
   Event4: `* ${arrOfEvents[3]}`, Event4: `* ${arrOfEvents[4]}`, Event4: `* ${arrOfEvents[5]}`,
 });
 });
+
+
+
+router.route('/chosenDay')
+.get((req,res)=>{
+  res.render('chosenDay');
+})
+.post( async (req, res) => {
+  const { events, notes } = req.body;
+  res.json( {events , notes});
+})
+
 
 
 
