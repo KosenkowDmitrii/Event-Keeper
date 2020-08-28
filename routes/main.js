@@ -66,7 +66,11 @@ router.route('/') //Добавляем даты к каждому дню на ma
 
 router.route('/chosenDay')
 .get((req,res)=>{
-  res.render('chosenDay');
+  res.render('chosenDay', {Data1: `${arrOfDates[0]}`, Data2: `${arrOfDates[1]}`, Data3: `${arrOfDates[2]}`,
+  Data4: `${arrOfDates[3]}`, Data5: `${arrOfDates[4]}`, Data6: `${arrOfDates[5]}`,
+  Data7: `${arrOfDates[6]}`, Data8: `${arrOfDates[7]}`,
+  Data9: `${arrOfDates[8]}`, Data10: `${arrOfDates[9]}`, Data11: `${arrOfDates[10]}`,
+  Data12: `${arrOfDates[11]}`, Data13: `${arrOfDates[12]}`, Data14: `${arrOfDates[13]}`});
 })
 .post( async (req, res) => {
   const { events, notes } = req.body;
