@@ -5,7 +5,6 @@ const Day = require('../models/day');
 
 function days(current) { //Вытягиваем динамические даты для main на 14 дней
   let week = new Array();
-
   let first = current.getDate();
   for (let i = 0; i < 14; i++) {
 
