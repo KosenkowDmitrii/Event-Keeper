@@ -1,36 +1,11 @@
-<h2>test</h2>
 
-{{keys}}
+{{#each data}}
+<p>{{date}}</p>
 
-
-
-{{#each keys}}
-<p>{{keys}}</p>
+{{#each event}}
 <ul>
-  <li></li>
+  <li>{{this}}</li>
 </ul>
+
 {{/each}}
-
-
-
-{{!-- {{#each days}}
-
-{{#if notes}}
-
-{{date}}
-{{#each notes}}
-{{this}}
 {{/each}}
-
-{{/if}}
-{{/each}} --}}
-
-{{!-- {{#if bool}} --}}
-{{!-- <p>{{date}}</p> --}}
-{{!-- <ul> --}}
-{{!-- {{#each notes}} --}}
-  {{!-- <li>{{this}}</li> --}}
-{{!-- {{/each}} --}}
-{{!-- </ul> --}}
-{{!-- {{/if}} --}}
-
