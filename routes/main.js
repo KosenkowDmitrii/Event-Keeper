@@ -1,37 +1,78 @@
 const express = require('express');
 const router = express.Router();
+const Day = require('../models/day');
 
 
-// function days(current) {
-//   let week = new Array();
-//   // Starting Monday not Sunday 
-//   let first = current.getDate();
-//   for (let i = 0; i < 9; i++) {
-//     // if (first > 32){
-//     //   first= 0;
-//     // }
-//     week.push(
-//       new Date(current.setDate(first++))
-//     );
-//   }
-//   return week;
-// }
+function days(current) { //Вытягиваем динамические даты для main на 14 дней
+  let week = new Array();
+  let first = current.getDate();
+  for (let i = 0; i < 14; i++) {
 
-// let input = new Date(Date.now());
-// console.log('input: %s', input);
+    week.push(
+      new Date(current.setDate(++first))
+    );
+  }
+  return week;
+}
 
+let input = new Date();
 
+function convertDateToUTC(date) { //Меняем формат даты с UTC на ISO для преобразования в строку === инфо из db
+  return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
+};
 
-// let result = days(input);
-// console.log(result.map(d => d.toString()));
+let result = days(input);
+const resArr = result.map(d => convertDateToUTC(d).toISOString().slice(0,10));
+let arrOfDates = Object.values(resArr); //Массив с датами формата '2020-08-12';
 
+console.log(arrOfDates);
 
+router.route('/') //Добавляем даты к каждому дню на main 
+.get( async ( req, res ) => {
+  let readDb = await Day.find();
+  
+  console.log(readDb);
+  let ObjOfEvents = {}; //Obj = date : event
 
+  const arrOfEvents = [];
 
-router.route('/')
-.get((req, res) => {
-  res.render('main', { Data1: '28', Data2: '29', Data3: '30', Data4: "31", Data5: "1", Data6: "2", Data7: "3" });
+  readDb.forEach( async (day) => {
+    for( let i = 0; i < arrOfDates.length; i++)
+    if(day.date[0] !== arrOfDates[i]) {
+      // console.log('Херня')
+    } else {
+      // console.log('Огонь');
+      // console.log(day.events[0]);
+      ObjOfEvents[arrOfDates[i]] = day.events[0];
+      arrOfEvents.push(`Event${i + 1}`, ObjOfEvents[arrOfDates[i]]);
+      };
+    });
+
+    console.log(ObjOfEvents);
+
+  res.render('main', { 
+  Data1: `${arrOfDates[0]}`, Data2: `${arrOfDates[1]}`, Data3: `${arrOfDates[2]}`, 
+  Data4: `${arrOfDates[3]}`, Data5: `${arrOfDates[4]}`, Data6: `${arrOfDates[5]}`, 
+  Data7: `${arrOfDates[6]}`, Data8: `${arrOfDates[7]}`,
+  Data9: `${arrOfDates[8]}`, Data10: `${arrOfDates[9]}`, Data11: `${arrOfDates[10]}`, 
+  Data12: `${arrOfDates[11]}`, Data13: `${arrOfDates[12]}`, Data14: `${arrOfDates[13]}`,
+  Event1: `* ${arrOfEvents[0]}`, Event4: `* ${arrOfEvents[1]}`, Event4: `* ${arrOfEvents[2]}`,
+  Event4: `* ${arrOfEvents[3]}`, Event4: `* ${arrOfEvents[4]}`, Event4: `* ${arrOfEvents[5]}`,
+  Event6: `* ${arrOfEvents[3]}`, Event7: `* ${arrOfEvents[4]}`, Event8: `* ${arrOfEvents[5]}`,
+  Event9: `* ${arrOfEvents[3]}`, Event10: `* ${arrOfEvents[4]}`, Event11: `* ${arrOfEvents[5]}`,
+  Event12: `* ${arrOfEvents[3]}`, Event13: `* ${arrOfEvents[4]}`, Event14: `* ${arrOfEvents[5]}`,
 });
+});
+
+router.route('/chosenDay')
+.get((req,res)=>{
+  res.render('chosenDay');
+})
+.post( async (req, res) => {
+  const { events, notes } = req.body;
+  res.json( {events , notes});
+})
+
 
 
 

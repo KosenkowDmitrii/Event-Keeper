@@ -8,14 +8,23 @@ router.route('/')
 })
 .post( async (req, res) => {
   const { date, events, notes } = req.body;
-  
+
   const day = new Day({
     date,
     events,
     notes,
   })
-  await day.save();
+  if(date && events) {
+    await day.save();
+  }
   console.log(day);
 });
+
+
+router.route('/main')
+.post((req, res) => {
+  res.redirect('/main')
+})
+
 
 module.exports = router;
