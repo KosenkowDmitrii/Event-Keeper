@@ -14,12 +14,17 @@ router.route('/')
     events,
     notes,
   })
-  await day.save();
+  if(date && events) {
+    await day.save();
+  }
   console.log(day);
 });
 
 
-
+router.route('/main')
+.post((req, res) => {
+  res.redirect('/main')
+})
 
 
 module.exports = router;

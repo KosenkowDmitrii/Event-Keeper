@@ -7,7 +7,6 @@ function deleter(butt,divc){
     divc.remove();})
 }
 
-
 if(form){
 
   form.addEventListener('submit', async (e) => {
@@ -25,13 +24,8 @@ if(form){
       notes: notes.value,
     })
   })
-  const res = await response.json();
-  if(response.status === 200) {
-    window.location = '/main';
-  }
+  const result = await response.json();
 })
-
-}
 
 if(frm){
 frm.addEventListener('submit', async (e) => {
@@ -65,6 +59,11 @@ frm.addEventListener('submit', async (e) => {
  deleter(b,div2);
 })
 }
-{/* <button type="button" action="click" class="btn btn-outline-dark form-group">Добавить заметку</button> */}
+// {<button type="button" action="click" class="btn btn-outline-dark form-group">Добавить заметку</button>}
+
+const backBtn = document.getElementById('backBtn');
+backBtn.addEventListener('click', function () {
+  window.location = '/main';
+});
 
 
