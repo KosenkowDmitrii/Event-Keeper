@@ -48,7 +48,6 @@ router.route('/') //Добавляем даты к каждому дню на ma
       };
     });
 
-    console.log(arrOfEvents);
     console.log(ObjOfEvents);
 
   res.render('main', { 
@@ -59,10 +58,11 @@ router.route('/') //Добавляем даты к каждому дню на ma
   Data12: `${arrOfDates[11]}`, Data13: `${arrOfDates[12]}`, Data14: `${arrOfDates[13]}`,
   Event1: `* ${arrOfEvents[0]}`, Event4: `* ${arrOfEvents[1]}`, Event4: `* ${arrOfEvents[2]}`,
   Event4: `* ${arrOfEvents[3]}`, Event4: `* ${arrOfEvents[4]}`, Event4: `* ${arrOfEvents[5]}`,
+  Event6: `* ${arrOfEvents[3]}`, Event7: `* ${arrOfEvents[4]}`, Event8: `* ${arrOfEvents[5]}`,
+  Event9: `* ${arrOfEvents[3]}`, Event10: `* ${arrOfEvents[4]}`, Event11: `* ${arrOfEvents[5]}`,
+  Event12: `* ${arrOfEvents[3]}`, Event13: `* ${arrOfEvents[4]}`, Event14: `* ${arrOfEvents[5]}`,
 });
 });
-
-
 
 router.route('/chosenDay')
 .get((req,res)=>{

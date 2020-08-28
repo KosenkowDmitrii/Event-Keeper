@@ -5,7 +5,7 @@ const container = document.querySelector('#container');
 function deleter(butt,divc){
   butt.addEventListener('click', () => {
     divc.remove();})
-}
+};
 
 if(form){
 
@@ -26,8 +26,7 @@ if(form){
   })
   window.location.reload();
   const result = await response.json();
-})
-
+});
 
 if(frm){
 frm.addEventListener('submit', async (e) => {
@@ -58,9 +57,10 @@ frm.addEventListener('submit', async (e) => {
   container.appendChild(div);
   let b = document.getElementById('deletebtn');
   let div2 = document.getElementById('div');
- deleter(b,div2);
-})
-}
+deleter(b,div2);
+});
+}};
+
 // {<button type="button" action="click" class="btn btn-outline-dark form-group">Добавить заметку</button>}
 
 const backBtn = document.getElementById('backBtn'); //кнопка назад на главную;
@@ -72,5 +72,3 @@ const saveBtn = document.getElementById('saveBtn'); //кнопка релоад�
 saveBtn.addEventListener('click', function () {
   window.location.reload();
 });
-
-
