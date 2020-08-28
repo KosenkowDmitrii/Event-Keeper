@@ -1,11 +1,16 @@
 
 {{#each data}}
-<p>{{date}}</p>
+<div class="card w-50">
+  <div class="card-body">
+<h2>{{date}}</h2>
 
 {{#each event}}
-<ul>
-  <li>{{this}}</li>
+<ul class="list-group">
+  <li class="list-group-item list-group-item-action list-group-item-secondary">{{this}}</li>
 </ul>
 
 {{/each}}
+</div>
+</div>
 {{/each}}
+
