@@ -25,17 +25,17 @@ let result = days(input);
 const resArr = result.map(d => convertDateToUTC(d).toISOString().slice(0,10));
 let arrOfDates = Object.values(resArr); //Массив с датами формата '2020-08-12';
 
-console.log(arrOfDates);
 
 router.route('/') //Добавляем даты к каждому дню на main 
 .get( async ( req, res ) => {
   let readDb = await Day.find();
   
-  console.log(readDb);
-  let ObjOfEvents = {}; //Obj = date : event
+  // console.log(readDb);
 
+  let ObjOfEvents = {}; //Obj = date : event...
+  
   const arrOfEvents = [];
-
+  
   readDb.forEach( async (day) => {
     for( let i = 0; i < arrOfDates.length; i++)
     if(day.date[0] !== arrOfDates[i]) {
@@ -44,11 +44,13 @@ router.route('/') //Добавляем даты к каждому дню на ma
       // console.log('Огонь');
       // console.log(day.events[0]);
       ObjOfEvents[arrOfDates[i]] = day.events[0];
-      arrOfEvents.push(`Event${i + 1}`, ObjOfEvents[arrOfDates[i]]);
+      await arrOfEvents.push(`Event${i + 1}`, ObjOfEvents[arrOfDates[i]]);
       };
     });
-
-    console.log(ObjOfEvents);
+    
+    console.log(arrOfDates); //['2020-08-28', '2020-08-29'...]
+    console.log(ObjOfEvents); //{'2020-08-29': 'Третье событие'...}
+    console.log(arrOfEvents); //['Event1','Юхууу','Event4','Событие на 31.08'...]
 
   res.render('main', { 
   Data1: `${arrOfDates[0]}`, Data2: `${arrOfDates[1]}`, Data3: `${arrOfDates[2]}`, 
@@ -72,10 +74,6 @@ router.route('/chosenDay')
   const { events, notes } = req.body;
   res.json( {events , notes});
 })
-
-
-
-
 
 
 module.exports = router;

@@ -4,7 +4,7 @@ const Day = require('../models/day');
 
 router.get('/', async (req, res) => {
   let daysFind = await Day.find();
-let days = daysFind.reduce((acc, el) => {
+  let days = daysFind.reduce((acc, el) => {
   let dateKey = el.date[0];
   if(acc[dateKey]) {
     acc[dateKey] = [...acc[dateKey], ... el.notes];
@@ -14,16 +14,19 @@ let days = daysFind.reduce((acc, el) => {
     return acc;
   }
 }, {})
-// let days1 = [];
-// days1.push(days);
-console.log(days);
-console.log(Object.keys(days));
-console.log(Object.values(days));
 
 let keys = Object.keys(days);
-let values = Object.values(days);
+
+let data = keys.map(key => {
+  let res = {}
+  res.date = key
+  res.event = days[key];
+  if (days[key][0] !== '') {
+    return res
+  }
+})
   
-    res.render('notes', { days, keys, value});
+    res.render('notes', { data });
   });
 
 
