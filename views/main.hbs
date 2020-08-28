@@ -2,15 +2,15 @@
   <div class="row">
     {{#each arr}}
     <div class="col-sm">
-      <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-        <div style="font-size: 13px" class="card-header"><a href="/main/z">{{date}}</a></div>
+      <div class="card text-white bg-dark mb-3" style="width: 8rem; height: 12rem;">
+        <div style="font-size: 12px" class="card-header"><a href="/main/chosenDay">{{date}}</a></div>
         <div class="card-body">
           {{#if exist}}
           {{#each events}}
-          <h5 id="day1" style="font-size: 13px" class="card-title">{{this}}</h5>
+          <h5 id="day1" style="font-size: 12px" class="card-title">{{this}}</h5>
           {{/each}}
           {{else}}
-          <h5 id="day1" style="font-size: 13px" class="card-title">nema eventa</h5>
+          <h5 id="day1" style="font-size: 11px; color:grey" class="card-title">нет событий</h5>
           {{/if}}
         </div>
       </div>
