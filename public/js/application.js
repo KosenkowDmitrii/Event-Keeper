@@ -26,7 +26,7 @@ if(form){
   })
   window.location.reload();
   const result = await response.json();
-});
+})}
 
 if(frm){
 frm.addEventListener('submit', async (e) => {
@@ -59,7 +59,7 @@ frm.addEventListener('submit', async (e) => {
   let div2 = document.getElementById('div');
 deleter(b,div2);
 });
-}};
+};
 
 // {<button type="button" action="click" class="btn btn-outline-dark form-group">Добавить заметку</button>}
 
