@@ -65,6 +65,18 @@ router.route('/') //Добавляем даты к каждому дню на ma
 
 
 
+router.route('/chosenDay')
+.get((req,res)=>{
+  res.render('chosenDay');
+})
+.post( async (req, res) => {
+  const { events, notes } = req.body;
+  res.json( {events , notes});
+})
+
+
+
+
 
 
 module.exports = router;
