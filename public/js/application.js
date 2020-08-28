@@ -5,7 +5,7 @@ const container = document.querySelector('#container');
 function deleter(butt,divc){
   butt.addEventListener('click', () => {
     divc.remove();})
-}
+};
 
 if(form){
 
@@ -26,9 +26,8 @@ if(form){
   })
   window.location.reload();
   const result = await response.json();
-})
-
-
+});
+}
 if(frm){
 frm.addEventListener('submit', async (e) => {
   e.preventDefault(); // prevent default action of form
@@ -76,3 +75,6 @@ const saveBtn = document.getElementById('saveBtn'); //кнопка релоад�
 saveBtn.addEventListener('click', function () {
   window.location.reload();
 });
+
+
+
