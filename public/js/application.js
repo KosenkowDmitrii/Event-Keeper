@@ -1,6 +1,22 @@
 const form = document.querySelector('#createEventForm');
 const frm = document.querySelector('#reduct-event');
 const container = document.querySelector('#container');
+const chosenDay = document.querySelectorAll('.chosen-day');
+console.log(chosenDay);
+console.log(form);
+
+chosenDay.forEach(el =>);
+addEventListener('click', async (e) => {
+  e.preventDefault();
+  console.log(e.target);
+  const {cd} = e.target;
+  const response = await fetch('/main/chosenDay', {
+    body: JSON.stringify({
+      dateCD: cd.value
+    })
+  })
+  window.location = '/main/chosenDay';
+})
 
 function deleter(butt,divc){
   butt.addEventListener('click', () => {
@@ -45,7 +61,7 @@ frm.addEventListener('submit', async (e) => {
       }) 
   });
   const result = await response.json();
-  console.log(result);
+  //console.log(result);
   const div = document.createElement('div');
   // div.setAttribute('id', 'div');
   div.innerHTML = `<div id="div"><div class="form-group mx-5">
