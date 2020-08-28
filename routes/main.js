@@ -82,16 +82,6 @@ console.log(readDb);
 console.log(arr);
   res.render('main', {
     arr
-  // Data1: newDay.Data1, Data2: newDay.Data2, Data3: newDay.Data3,  //Вывод дат на main
-  // Data4: newDay.Data4, Data5: newDay.Data4, Data6: newDay.Data6,
-  // Data7: newDay.Data7, Data8: newDay.Data8,
-  // Data9: newDay.Data9, Data10: newDay.Data10, Data11: newDay.Data11,
-  // Data12: newDay.Data12, Data13: newDay.Data13, Data14: newDay.Data14,
-  // Event1: `* ${arrOfEvents[0]}`, Event4: `* ${arrOfEvents[1]}`, Event4: `* ${arrOfEvents[2]}`, //Вывод ивентов на main
-  // Event4: `* ${arrOfEvents[3]}`, Event4: `* ${arrOfEvents[4]}`, Event4: `* ${arrOfEvents[5]}`,
-  // Event6: `* ${arrOfEvents[3]}`, Event7: `* ${arrOfEvents[4]}`, Event8: `* ${arrOfEvents[5]}`,
-  // Event9: `* ${arrOfEvents[3]}`, Event10: `* ${arrOfEvents[4]}`, Event11: `* ${arrOfEvents[5]}`,
-  // Event12: `* ${arrOfEvents[3]}`, Event13: `* ${arrOfEvents[4]}`, Event14: `* ${arrOfEvents[5]}`,
 });
 });
 

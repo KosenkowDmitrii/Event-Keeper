@@ -5,7 +5,7 @@ const chosenDay = document.querySelectorAll('.chosen-day');
 console.log(chosenDay);
 console.log(form);
 
-chosenDay.forEach(el =>);
+chosenDay.forEach(el =>
 addEventListener('click', async (e) => {
   e.preventDefault();
   console.log(e.target);
@@ -17,6 +17,7 @@ addEventListener('click', async (e) => {
   })
   window.location = '/main/chosenDay';
 })
+);
 
 function deleter(butt,divc){
   butt.addEventListener('click', () => {
@@ -80,11 +81,6 @@ frm.addEventListener('submit', async (e) => {
   deleter(b,div2);
 })
 }
-
-
-
-
-
 
 const backBtn = document.getElementById('backBtn'); //кнопка назад на главную;
 backBtn.addEventListener('click', function () {
