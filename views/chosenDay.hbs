@@ -1,7 +1,13 @@
 
-<h2 class="m-5"><span class="m-50">Дата в усиках</span></h2>
+<h2 class="m-5"><span class="m-50">02.28:</span></h2>
+<div class="w-50">
+    <div class="form-group mx-5">
+<a href="/main" class="btn btn-outline-dark form-group">Внести</a>
+</div>
 
-<form class="w-50" id="createEventForm" action="/eventAdd" method="POST">
+<form class="w-50" id="reduct-event" action="/main/chosenDay" method="POST">
+   <div id="container"></div>
+
   <div class="form-group mx-5">
     <label for="exampleInputText">Опишите событие</label>
     <input name="events" type="text" class="form-control" id="exampleInputText" aria-describedby="dateHelp">
@@ -10,7 +16,7 @@
     <label for="exampleInputText">Оставьте заметку</label>
     <textarea name="notes" type="text" class="form-control" id="exampleInputText" aria-describedby="dateHelp"></textarea>
     </div>
-    <button type="submit" class="btn btn-dark ml-5 form-group">Сохранить</button>
-  <button type="button" action="/main" class="btn btn-outline-dark form-group">Назад</button>
-
+    <button type="submit" class="btn btn-dark ml-5 form-group">Добавить событие</button>
 </form>
+
+
