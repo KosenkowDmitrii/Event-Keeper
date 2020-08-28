@@ -14,16 +14,18 @@ let days = daysFind.reduce((acc, el) => {
     return acc;
   }
 }, {})
-// let days1 = [];
-// days1.push(days);
-console.log(days);
-console.log(Object.keys(days));
-console.log(Object.values(days));
 
 let keys = Object.keys(days);
-let values = Object.values(days);
+
+let data = keys.map(key => {
+  let res = {}
+  res.date = key
+  res.event = days[key]
+  return res
+})
+console.log(data);
   
-    res.render('notes', { days, keys, value});
+    res.render('notes', { data });
   });
 
 
