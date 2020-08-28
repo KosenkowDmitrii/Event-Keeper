@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Day = require('../models/day');
+const { db } = require('../models/day');
 
 
 function days(current) { //Вытягиваем динамические даты для main на 14 дней
@@ -28,11 +29,11 @@ router.route('/') //Добавляем даты к каждому дню на ma
   
   // console.log(readDb);
 
-  let ObjOfEvents = {}; //Obj = date : event...
+  let ObjOfEvents = {}; //Obj = date : event... ИВЕНТЫ ПО ДАТАМ ДЛЯ MAIN
   
-  const arrOfEvents = [];
+  // const arrOfEvents = [];
   
-  readDb.forEach( async (day) => {
+  readDb.forEach( async (day) => { //Сравниваем даты в Main и DB, если совпадают, выводим 
     for( let i = 0; i < arrOfDates.length; i++)
     if(day.date[0] !== arrOfDates[i]) {
       // console.log('Херня')
@@ -40,28 +41,59 @@ router.route('/') //Добавляем даты к каждому дню на ma
       // console.log('Огонь');
       // console.log(day.events[0]);
       ObjOfEvents[arrOfDates[i]] = day.events[0];
-      await arrOfEvents.push(`Event${i + 1}`, ObjOfEvents[arrOfDates[i]]);
       };
     });
     
-    console.log(arrOfDates); //['2020-08-28', '2020-08-29'...]
-    console.log(ObjOfEvents); //{'2020-08-29': 'Третье событие'...}
-    console.log(arrOfEvents); //['Event1','Юхууу','Event4','Событие на 31.08'...]
+    let newDay = {};
+    for(let i = 1; i < 15; i++) {
+      // newDay[`Data${i}`] = arrOfDates[i-1];
+      // newDay[`Event${i}`] = readDb[i].events[0];
+        newDay[`Data${i}`] = arrOfDates[i-1];
+        // if()
+      // newDay[`Event${i}`] = readDb[i].events[0];
+    };
 
+    // console.log(newDay);
+    // console.log(arrOfDates); //['2020-08-28', '2020-08-29'...]
+    // console.log(ObjOfEvents); //{'2020-08-29': 'Третье событие'...}
+const arr = [
+  {date: newDay.Data1}, {date: newDay.Data2}, {date: newDay.Data3},  //Вывод дат на main
+  {date: newDay.Data4}, {date: newDay.Data5}, {date: newDay.Data6},
+  {date: newDay.Data7}, {date: newDay.Data8},
+  {date: newDay.Data9}, {date: newDay.Data10}, {date: newDay.Data11},
+  {date: newDay.Data12}, {date: newDay.Data13}, {date: newDay.Data14},
+]
+console.log(arr);
+console.log(readDb);
+
+ arr.forEach(day => {
+  readDb.forEach(dbDay=>{
+    if(day.date === dbDay.date[0]){
+      if(day.events){
+        day.events =[...day.events,...dbDay.events] 
+        day.exist = true
+      }else{
+        day.events =[... dbDay.events]
+        day.exist = true
+      }
+    }
+  })
+})
+console.log(arr);
   res.render('main', {
-  Data1: `${arrOfDates[0]}`, Data2: `${arrOfDates[1]}`, Data3: `${arrOfDates[2]}`,
-  Data4: `${arrOfDates[3]}`, Data5: `${arrOfDates[4]}`, Data6: `${arrOfDates[5]}`,
-  Data7: `${arrOfDates[6]}`, Data8: `${arrOfDates[7]}`,
-  Data9: `${arrOfDates[8]}`, Data10: `${arrOfDates[9]}`, Data11: `${arrOfDates[10]}`,
-  Data12: `${arrOfDates[11]}`, Data13: `${arrOfDates[12]}`, Data14: `${arrOfDates[13]}`,
-  Event1: `* ${arrOfEvents[0]}`, Event4: `* ${arrOfEvents[1]}`, Event4: `* ${arrOfEvents[2]}`,
-  Event4: `* ${arrOfEvents[3]}`, Event4: `* ${arrOfEvents[4]}`, Event4: `* ${arrOfEvents[5]}`,
-  Event6: `* ${arrOfEvents[3]}`, Event7: `* ${arrOfEvents[4]}`, Event8: `* ${arrOfEvents[5]}`,
-  Event9: `* ${arrOfEvents[3]}`, Event10: `* ${arrOfEvents[4]}`, Event11: `* ${arrOfEvents[5]}`,
-  Event12: `* ${arrOfEvents[3]}`, Event13: `* ${arrOfEvents[4]}`, Event14: `* ${arrOfEvents[5]}`,
+    arr
+  // Data1: newDay.Data1, Data2: newDay.Data2, Data3: newDay.Data3,  //Вывод дат на main
+  // Data4: newDay.Data4, Data5: newDay.Data4, Data6: newDay.Data6,
+  // Data7: newDay.Data7, Data8: newDay.Data8,
+  // Data9: newDay.Data9, Data10: newDay.Data10, Data11: newDay.Data11,
+  // Data12: newDay.Data12, Data13: newDay.Data13, Data14: newDay.Data14,
+  // Event1: `* ${arrOfEvents[0]}`, Event4: `* ${arrOfEvents[1]}`, Event4: `* ${arrOfEvents[2]}`, //Вывод ивентов на main
+  // Event4: `* ${arrOfEvents[3]}`, Event4: `* ${arrOfEvents[4]}`, Event4: `* ${arrOfEvents[5]}`,
+  // Event6: `* ${arrOfEvents[3]}`, Event7: `* ${arrOfEvents[4]}`, Event8: `* ${arrOfEvents[5]}`,
+  // Event9: `* ${arrOfEvents[3]}`, Event10: `* ${arrOfEvents[4]}`, Event11: `* ${arrOfEvents[5]}`,
+  // Event12: `* ${arrOfEvents[3]}`, Event13: `* ${arrOfEvents[4]}`, Event14: `* ${arrOfEvents[5]}`,
 });
 });
-
 
 
 router.route('/chosenDay')
